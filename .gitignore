@@ -1,0 +1,9 @@
+node_modules/
+.sass-cache/
+.DS_STORE
+dist/
+.idea
+vendor/
+*.mp4
+*.gif
+package-lock.json
