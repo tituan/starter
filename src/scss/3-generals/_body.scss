@@ -16,8 +16,9 @@ body {
   color: $color-black;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
   @include resp-tablet{
-    // overflow: hidden;
+
   }
   @include resp-desktop {
     font-size: $f16;

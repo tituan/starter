@@ -23,7 +23,7 @@
   //     });
   //   }
   // });
-  
+
   //////////////delegation//////////////////////////////////
 
   // $('body').on("click","#playDesk",function(){
@@ -33,4 +33,9 @@
   //
   // });
 
+  $('#nav').hide();
+
+  $( "#title" ).click(function() {
+      $('#nav').fadeToggle(1000);
+    });
 })(jQuery);

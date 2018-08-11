@@ -1,0 +1,26 @@
+.video{
+  display:none;
+  @include resp-desktop{
+    display: block;
+
+  }
+  video{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+@media (min-aspect-ratio: 4/3) {
+  #fire {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-aspect-ratio: 4/3) {
+  #fire {
+    width: auto;
+    height: 100%;
+  }
+}

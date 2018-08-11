@@ -3,12 +3,19 @@ $color-black: rgb(0,0,0);
 $color-black-opacity: rgba(0,0,0,0.8);
 $color-white-trans: rgba(255,255,255,0.7);
 $color-grey-trans:rgba(222,223,227,0.7);
+$color-red:rgb(199, 0, 57 );
+$color-orange:rgb(255, 195, 0);
+$color-blue:rgb(93, 173, 226);
 
-
+$font-secondary:'Monoton', sans-serif;
 $font: 'Open Sans', sans-serif;
+$font-ter:'Six Caps', sans-serif;
+$font-rock:'Vampiro One', sans-serif;
+$font-scare:'Creepster', sans-serif;
+
 
 $breakpoint-largescreen: 1441px;
 $breakpoint-desktop: 1025px;
 $breakpoint-tablet: 770px;
 
-$wrapper: 1440px;
+$wrapper: 1600px;
