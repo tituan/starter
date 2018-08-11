@@ -24,3 +24,24 @@
     height: 100%;
   }
 }
+.jesus{
+  display: none;
+  img{
+    width: 200px;
+    position: absolute;
+    bottom: 125px;
+    right: 82px;
+    opacity: 0.7;
+
+  }
+}
+.graff{
+  display: none;
+  img{
+    width: 200px;
+    position: absolute;
+    top: 200px;
+    left: 0px;
+    opacity: 0.5;
+  }
+}

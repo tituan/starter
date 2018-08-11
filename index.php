@@ -20,8 +20,8 @@
 		<header>
 			<nav id="nav">
 				<ul>
-					<li>feu</li>
-					<li>glace</li>
+					<li id="fire">feu</li>
+					<li id="ice">glace</li>
 				</ul>
 			</nav>
 		</header>
@@ -36,6 +36,12 @@
 			</div>
 			<div class="title" id="title">
 				<h1>le feu sous la glace</h1>
+			</div>
+			<div class="jesus" id="jesus">
+				<img src="dist/img/jesus02.png" alt="Jesus">
+			</div>
+			<div class="graff" id="graff">
+				<img src="dist/img/Graffity.png" alt="Graff">
 			</div>
 		</main>
 		<footer>

@@ -38,4 +38,16 @@
   $( "#title" ).click(function() {
       $('#nav').fadeToggle(1000);
     });
+
+  $('#jesus').hide();
+
+  $( "#fire" ).click(function() {
+      $('#jesus').fadeToggle(1000);
+    });
+
+  $('#jesus').hide();
+
+  $( "#fire" ).click(function() {
+      $('#graff').fadeToggle(1000);
+  });
 })(jQuery);
