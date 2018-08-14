@@ -1,0 +1,33 @@
+// .jordan{
+
+//   &__scene{
+//     z-index: 999;
+//         transform: translate3d(561px, 369px, 0px) rotate(0.0001deg)!important;
+//   }
+// }
+
+.jordan{
+  right: 0px!important;
+  bottom: 0px!important;
+  left: 0px!important;
+  top: 0px!important;
+  z-index: 999;
+}
+.container{
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+#scene{
+  position: absolute;
+  bottom: 0;
+  left: 16%;
+  opacity: 0.7;
+}
+.jordan__layer{
+  right: 255px !important;
+  bottom: 72px !important;
+  left: auto!important;
+  top: auto!important;
+  z-index: 999;
+}

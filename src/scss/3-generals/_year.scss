@@ -1,0 +1,54 @@
+.year{
+  p{
+    color:red;
+    font-family: $font-pixel;
+    font-size: 2rem;
+    position: absolute;
+    top: 30px;
+    left:20px;
+    span{
+
+      color: $color-white;
+    }
+  }
+}
+.description{
+  position: absolute;
+  bottom: 30px;
+  // left: 0;
+  width: 100%;
+  text-align: center;
+  color: $color-white;
+  font-size: 0.7rem;
+  font-family: $font-pixel;
+}
+.shoes{
+  position: absolute;
+  bottom: 412px;
+  left: 90px;
+  img{
+    width: 200px;
+    z-index: 999;
+    opacity: 0.7;
+    &:hover{
+    width: 225px;
+    transition: 0.3s;
+    opacity: 0.8;
+    }
+  }
+}
+.jersey{
+  position: absolute;
+  bottom: 213px;
+  left: 347px;
+  img{
+    width: 125px;
+    z-index: 999;
+    opacity: 0.5;
+    &:hover{
+    width: 200px;
+    transition: 0.3s;
+    opacity: 0.7;
+    }
+  }
+}

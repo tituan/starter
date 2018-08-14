@@ -1,0 +1,114 @@
+@mixin resp-tablet {
+  @media only screen and (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin resp-desktop {
+  @media only screen and (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin resp-largescreen {
+  @media only screen and (min-width: $breakpoint-largescreen) {
+    @content;
+  }
+}
+
+@mixin display-flex {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -o-flex;
+  display: flex;
+}
+
+@mixin flex-direction($mode) {
+  -webkit-flex-direction: $mode;
+  -moz-flex-direction: $mode;
+  -ms-flex-direction: $mode;
+  -o-flex-direction: $mode;
+  flex-direction: $mode;
+}
+
+@mixin justify-content($mode) {
+  -webkit-justify-content: $mode;
+  -moz-justify-content: $mode;
+  -ms-justify-content: $mode;
+  -o-justify-content: $mode;
+  justify-content: $mode;
+}
+
+@mixin align-items($mode) {
+  -webkit-align-items: $mode;
+  -moz-align-items: $mode;
+  -ms-align-items: $mode;
+  -o-align-items: $mode;
+  align-items: $mode;
+}
+
+@mixin flex-wrap($mode) {
+  -webkit-flex-wrap: $mode;
+  -moz-flex-wrap: $mode;
+  -ms-flex-wrap: $mode;
+  -o-flex-wrap: $mode;
+  flex-wrap: $mode;
+}
+
+@mixin order($position) {
+  -webkit-order: $position;
+  -moz-order: $position;
+  -ms-order: $position;
+  -o-order: $position;
+  order: $position;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($values) {
+  -webkit-box-shadow: $values;
+  -moz-box-shadow: $values;
+  box-shadow: $values;
+}
+
+@mixin animation($values) {
+  -webkit-animation: $values;
+  -moz-animation: $values;
+  -ms-animation: $values;
+  -o-animation: $values;
+  animation: $values;
+}
+
+@mixin animation-fill-mode($values) {
+  -webkit-animation-fill-mode: $values;
+  -moz-animation-fill-mode: $values;
+  -ms-animation-fill-mode: $values;
+  -o-animation-fill-mode: $values;
+  animation-fill-mode: $values;
+}
+
+@mixin transform($values) {
+  -moz-transform: $values;
+  -webkit-transform: $values;
+  -o-transform: $values;
+  transform: $values;
+}
+
+@mixin transform-origin($values){
+  -moz-transform-origin: $values;
+  -webkit-transform-origin: $values;
+  -o-transform-origin: $values;
+  transform-origin: $values;
+}
+
+@mixin transition($values){
+  -webkit-transition: $values;
+  -moz-transition: $values;
+  -o-transition: $values;
+  transition: $values;
+}
