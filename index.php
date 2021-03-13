@@ -15,9 +15,9 @@
 	<body >
 		<header>
 		</header>
-		<main>
-			<h1>Hello</h1>
-		</main>
+			<main>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi culpa quaerat quia nobis. Optio unde, accusantium debitis atque voluptates doloribus est iste laudantium esse voluptatem dolorum suscipit incidunt voluptatum consequuntur!
+			</main>
 		<footer>
 			<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 			<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
