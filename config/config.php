@@ -1,0 +1,3 @@
+<?php
+
+DEFINE("ENV", "dev");

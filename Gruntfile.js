@@ -1,104 +1,148 @@
+const webpackConfig = require('./webpack.config.js');
 module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    clean: {
-      build: {
-        src: ['dist']
-      },
-    },
-
-    concat: {
-      build: {
-        src: [
-          'src/script/**/*.js',
-        ],
-        dest: 'dist/script/main.min.js',
-      },
-    },
-
-    copy: {
-      build: {
-        expand: true,
-        cwd: 'src/media',
-        src: '**',
-        dest: 'dist/media',
-      },
-    },
-
-    imagemin: {
+    autoprefixer: {
       build: {
         files: [{
           expand: true,
-          cwd: 'src/img/',
-          src: ['**/*.{png,jpg,gif,svg}'],
-          dest: 'dist/img/',
-        },],
-      },
+          cwd: 'public/dist/css',
+          src: ['*.css'],
+          dest: 'public/dist/css/',
+          ext: '.css'
+        }]
+      }
     },
 
-    sass: {
+    cacheKiller: {
+      style: {
+        files: {
+          'public/dist/css/home[mask].css': 'templates/dist/styles.html.twig'
+        }
+      },
+      script: {
+        files: {
+          'public/dist/script/home[mask].js': 'templates/dist/scripts.html.twig'
+        }
+      }
+    },
+
+    clean: {
+      build: {
+        src: ['public/dist', 'templates/dist', 'var/cache']
+      }
+    },
+
+    copy: {
+      fonts: {
+        expand: true,
+        cwd: 'assets/fonts',
+        src: '**/*.{svg,eot,woff,ttf}',
+        dest: 'public/dist/fonts'
+      },
+      templates: {
+        expand: true,
+        cwd: 'templates/assets_templates',
+        src: '**/*.{html,php,twig}',
+        dest: 'templates/dist'
+      },
+      img: {
+        expand: true,
+        cwd: 'assets/img/',
+        src: '**/*.{png,jpg,gif,svg}',
+        dest: 'public/dist/img/'
+      }
+    },
+
+    'dart-sass': {
       prod: {
         options: {
-          style: 'compressed',
+          outputStyle: 'compressed',
+          sourceMap: false
         },
-        files: {
-          'dist/css/main.min.css': 'src/scss/main.scss',
-        },
+        files: [{
+          expand: true,
+          cwd: 'assets/scss',
+          src: ['*.scss'],
+          dest: 'public/dist/css/',
+          ext: '.css'
+        }]
       },
       dev: {
         options: {
-          style: 'expanded',
+          outputStyle: 'expanded',
+          sourceMap: true
         },
-        files: {
-          'dist/css/main.min.css': 'src/scss/main.scss',
-        },
+        files: [{
+          expand: true,
+          cwd: 'assets/scss',
+          src: ['*.scss'],
+          dest: 'public/dist/css/',
+          ext: '.css'
+        }]
       },
     },
 
-    uglify: {
-      build: {
-        src: 'dist/script/main.min.js',
-        dest: 'dist/script/main.min.js',
-      },
+    webpack: {
+      prod: Object.assign({
+        mode: 'production'
+      }, webpackConfig),
+      dev: Object.assign({
+        mode: 'development'
+      }, webpackConfig)
     },
 
     watch: {
-      scripts: {
-        files: ['src/script/**/*.js'],
-        tasks: ['concat'],
-        options: {
-          spawn: false,
-        },
-      },
       css: {
-        files: ['src/scss/**/*.scss'],
-        tasks: ['sass:dev'],
+        files: 'assets/scss/**/*.scss',
+        tasks: 'dart-sass:dev',
         options: {
-          spawn: false,
-        },
+          spawn: false
+        }
+      },
+      fonts: {
+        files: 'assets/fonts/**/*.{svg,eot,woff,ttf}',
+        tasks: 'copy:fonts',
+        options: {
+          spawn: false
+        }
       },
       img: {
-        files: ['src/img/**/*.{png,jpg,gif,svg}'],
-        tasks: ['imagemin'],
+        files: 'assets/img/**/*.{png,jpg,gif,svg}',
+        tasks: 'copy:img',
         options: {
-          spawn: false,
-        },
+          spawn: false
+        }
       },
+      scripts: {
+        files: 'assets/script/**/*.js',
+        tasks: 'webpack:dev',
+        options: {
+          spawn: false
+        }
+      },
+      views: {
+        files: 'templates/assets_templates/*.{html,php,twig}',
+        tasks: 'copy:templates',
+        options: {
+          spawn: false
+        }
+      }
     },
 
   });
 
+  grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-cache-killer');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-dart-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-webpack');
 
-  grunt.registerTask('default', ['clean', 'copy', 'concat', 'uglify', 'imagemin', 'sass:prod']);
-  grunt.registerTask('dev', ['clean', 'copy', 'concat','imagemin', 'sass:dev', 'watch']);
+  grunt.registerTask('default', ['clean', 'webpack:prod', 'dart-sass:prod', 'autoprefixer', 'copy', 'cacheKiller']);
+  grunt.registerTask('dev', ['clean', 'webpack:dev', 'dart-sass:dev', 'copy', 'watch']);
 
 };

@@ -1,0 +1,32 @@
+/*
+ * This file defines all the scss variables.
+ */
+
+// Colors:
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(0, 0, 0);
+$color-error: rgb(255, 80, 80);
+
+// Fonts:
+$font: 'Open Sans', sans-serif;
+
+/*
+ * This variable defines the values of breapkpoints.
+ * These values are the same as used by javascript (assets/script/1-tools/breakpoints.js).
+ */
+$breakpoints: (
+  xs: 400px,
+  sm: 500px,
+  md: 850px,
+  lg: 1200px,
+  xl: 1500px
+);
+
+// Container:
+$container: 1400px;
+
+// Animations:
+$time-veryfast: .2s;
+$time-fast: .5s;
+$time-normal: .7s;
+$time-slow: 1s;

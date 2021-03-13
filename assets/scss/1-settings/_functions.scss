@@ -1,0 +1,4 @@
+@function fz($size) {
+  $newsize: $size / 16 * 1rem;
+  @return $newsize;
+}

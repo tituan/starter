@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Title
+{% endblock %}
+
+{% block description %}
+  Description
+{% endblock %}
+
+{% block style %}
+  {% include 'dist/styles.html.twig' with {
+    'assetType' : 'homepage'
+  } %}
+{% endblock %}
+
+{% block body %}
+  <main>
+    <div class="container">
+      <form class="form registration" method="post" action="inscription.php">
+        <div class="form__block">
+          <p class="form__label--inline">Civilité*</p>
+          <input type="radio" name="civility" value="Madame" id="civility__mrs">
+          <label for="civility__mrs">Mme</label>
+          <input type="radio" name="civility" value="Monsieur" id="civility__mr">
+          <label for="civility__mr">M.</label>
+          <div class="radio-error"></div>
+        </div>
+        <div class="form__block">
+          <input class="form__input" type="text" name="lastname" placeholder="Votre nom *">
+        </div>
+        <div class="form__block">
+          <input class="form__input" type="text" name="firstname" placeholder="Votre prénom *">
+        </div>
+        <div class="form__block">
+          <input class="form__input" type="text" name="postalcode" placeholder="Votre code postal *">
+        </div>
+        <div class="form__block">
+          <input class="form__input" type="text" name="city" placeholder="Votre ville *">
+        </div>
+        <div class="form__block">
+          <input class="form__input" type="email" name="email" placeholder="Votre e-mail *">
+        </div>
+        <div class="form__block">
+          <input class="form__input" type="tel" name="phone" placeholder="Votre téléphone *">
+        </div>
+        <div class="form__block">
+          <input type="checkbox" name="rgpd" value="1" id="rgpd">
+          <label for="rgpd">Mentions RGPD</label>
+        </div>
+        <input type="hidden" name="type" value="inscription">
+        <div class="form__submit">
+          <button class="form__submit__button" type="submit">je m'inscris</button>
+        </div>
+        <p class="form__required">* Champs obligatoires</p>
+      </form>
+      <p class="form__confirm">Merci, votre demande a bien été prise en compte.</p>
+    </div>
+    
+  </main>
+{% endblock %}
+
+{% block script %}
+{% include 'dist/scripts.html.twig' with {
+  'assetType' : 'homepage'
+} %}
+{% endblock %}

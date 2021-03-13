@@ -1,0 +1,59 @@
+#cookie-bar {
+  background-color: transparentize($color-black, .2);
+  height: auto;
+  line-height: 1.4;
+  color: $color-white;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: fz(11);
+  @include resp('md') {
+    font-size: fz(13);
+  }
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    &.bottom {
+      bottom: 0;
+      top: auto;
+    }
+  }
+
+  & p {
+    margin: 0;
+    padding: 0;
+  }
+
+  & a {
+    display: block;
+    width: 80px;
+    color: $color-white;
+    margin: 10px auto 0;
+    text-decoration: none;
+    padding: 2px 6px;
+    @include resp('md') {
+      width: auto;
+      display: inline-block;
+      margin: 0 0 0 8px;
+    }
+  }
+
+  & .cb-enable,
+  & .cb-disable,
+  & .cb-policy {
+    background-color: $color-error;
+    transition: background-color $time-normal;
+
+    &:hover {
+      background-color: darken($color-error, 10%);
+    }
+  }
+
+  & .cb-enable {
+    border: 1px solid $color-white;
+  }
+}
